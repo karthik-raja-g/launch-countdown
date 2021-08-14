@@ -2,6 +2,7 @@ import "./App.css";
 import facebook from "./assets/facebook.svg";
 import instagram from "./assets/instagram.svg";
 import pinterest from "./assets/pinterest.svg";
+import Card from "./card";
 
 function App() {
   
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
       <main>
         <h1 className="title">WE'RE LAUNCHING SOON</h1>
+        <Card/>
       </main>
       <footer>
         <a
