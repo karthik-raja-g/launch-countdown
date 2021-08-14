@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap');
+.App {
+  text-align: center;
+  background-color: hsl(234, 17%, 12%);
+  font-family: 'Red Hat Text', sans-serif;
+}
+main {
+  background-image: url('./assets/bg-stars.svg');
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer {
+  background-image: url('./assets/pattern-hills.svg');
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main .title {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.5em;
+  letter-spacing: 8px;
+  line-height: 2em;
+}
+footer .social-icon:nth-child(2) {
+  margin: 0 2em;
+}
