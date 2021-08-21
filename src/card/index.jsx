@@ -15,7 +15,7 @@ const Card = ({ value }) => {
     <div className={styles.cardContainer}>
       <div
         className={`${styles.card} ${styles.top} ${
-          !flip ? styles.flipper : styles.hideFlip
+          !flip ? styles.flipper : ''
         }`}
       >
         <p>{!flip ? temp : value < 10 ? `0${value}` : value}</p>
@@ -24,7 +24,7 @@ const Card = ({ value }) => {
       <span className={`${styles.cut} ${styles.left}`}/>
       <div
         className={`${styles.card}  ${
-          flip ? styles.flipper : styles.hideFlip
+          flip ? styles.flipper : ''
         } ${styles.flipCard}`}
       >
         <p>{flip ? temp : value < 10 ? `0${value}` : value}</p>
