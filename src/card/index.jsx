@@ -1,26 +1,39 @@
-import React, { useState, useEffect } from "react";
-import styles from "./styles.module.css";
+import React, { useEffect, useState } from 'react';
+import styles from './styles.module.scss';
+import useDebounce from '../useDebounce';
 
-const Card = () => {
-  const [val, setVal] = useState(0);
+const Card = ({ value }) => {
+  // const value = 34
+  const [temp, setTemp] = useDebounce(value < 10 ? `0${value}` : value, 400)
+  const [flip, setFlip] = useState(false)
+  useEffect(() => {
+    if(value === 0) return;
+    setTemp(value < 10 ? `0${value}` : value);
+    setFlip(!flip)
+  },[value])
   return (
-    <>
-      <div className={styles.cardContainer}>
-        <div className={`${styles.card} ${styles.top}`}>
-          <p>{val < 10 ? `0${val}` : val}</p>
-        </div>
-        <div className={`${styles.wedge} ${styles.left}`}></div>
-        <div className={styles.flipper}></div>
-        <div className={`${styles.wedge} ${styles.right}`}></div>
-        <div className={`${styles.card} ${styles.bottom}`}>
-          <p>{val < 10 ? `0${val}` : val}</p>
-        </div>
+    <div className={styles.cardContainer}>
+      <div
+        className={`${styles.card} ${styles.top} ${
+          !flip ? styles.flipper : styles.hideFlip
+        }`}
+      >
+        <p>{!flip ? temp : value < 10 ? `0${value}` : value}</p>
       </div>
-      <button onClick={() => setVal((prev) => prev + 1)}>up</button>
-      <button onClick={() => setVal((prev) => prev - 1)}>down</button>
-      <input value={val} onChange={(e) => setVal(e.target.value)} />
-    </>
+      <span className={`${styles.cut} ${styles.right}`}/>
+      <span className={`${styles.cut} ${styles.left}`}/>
+      <div
+        className={`${styles.card}  ${
+          flip ? styles.flipper : styles.hideFlip
+        } ${styles.flipCard}`}
+      >
+        <p>{flip ? temp : value < 10 ? `0${value}` : value}</p>
+      </div>
+      <div className={`${styles.card} ${styles.bottom}`}>
+        <p>{temp}</p>
+      </div>
+    </div>
   );
 };
 
-export default Card;
+export default Card

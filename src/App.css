@@ -12,6 +12,14 @@ main {
   align-items: center;
   justify-content: center;
 }
+
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
 footer {
   background-image: url('./assets/pattern-hills.svg');
   height: 20vh;
