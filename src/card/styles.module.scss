@@ -16,13 +16,16 @@ $fontColor: hsl(345, 95%, 68%);
   background-color: $border;
 }
 
+.counter {
+  position: relative;
+}
 .cardContainer {
   height: $cardHeight * 2;
   width: $cardWidth;
   position: relative;
   margin: 0 20px;
   perspective: 300px;
-  perspective-origin: calc(100% - $cardHeight);
+  perspective-origin: $cardHeight;
 
   .card {
     display: flex;
@@ -46,6 +49,8 @@ $fontColor: hsl(345, 95%, 68%);
       p {
         display: block;
         margin: 1em 0 0 0;
+        opacity: 0.85;
+
       }
     }
 
@@ -55,7 +60,6 @@ $fontColor: hsl(345, 95%, 68%);
       z-index: 1;
       box-shadow:  0px 16px 11px 0px $boxShadow;
       border-radius: 0 0 8px 8px;
-      border-top: 1px solid $border;
       p {
         margin: 0 0 1em 0;
       }
@@ -98,6 +102,8 @@ $fontColor: hsl(345, 95%, 68%);
     p {
       display: block;
       margin: 1em 0 0 0;
+      opacity: 0.85;
+
     }
   }
   .flipCard::after {
@@ -109,5 +115,85 @@ $fontColor: hsl(345, 95%, 68%);
     @extend %cut;
     left: -3px;
     bottom: -3px;
+  }
+}
+
+.label {
+  margin: 2em 0;
+  text-align: center;
+  font-size: 0.85em;
+  opacity: 0.5;
+  color: hsl(0, 0%, 100%);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px $boxShadow;
+}
+
+@media only screen and (max-width: 425px) {
+  .cardContainer {
+    height: 90px;
+    width: 80px;
+    margin: 0 10px;
+    perspective-origin: 40px;
+
+    .card {
+      height: 45px;
+      font-size: 2.5em;
+
+      &.top {
+        p {
+          margin: 1.25em 0 0 0;
+        }
+      }
+
+      &.bottom {
+        p {
+          margin: 0 0 1em 0;
+        }
+      }
+    }
+    .flipCard { 
+      p {
+        margin: 1.25em 0 0 0;
+      }
+    }
+  }
+  .label {
+    font-size: 0.65em;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .cardContainer {
+    height: 76px;
+    width: 65px;
+    margin: 0 10px;
+    perspective-origin: 40px;
+
+    .card {
+      height: 38px;
+      font-size: 2em;
+
+      &.top {
+        p {
+          margin: 1.25em 0 0 0;
+        }
+      }
+
+      &.bottom {
+        p {
+          margin: 0 0 1.1em 0;
+        }
+      }
+    }
+    .flipCard { 
+      p {
+        margin: 1.25em 0 0 0;
+      }
+    }
+  }
+  .label {
+    font-size: 0.55em;
   }
 }
