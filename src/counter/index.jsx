@@ -5,14 +5,18 @@ import { getCurrentDateTime } from "./helper";
 
 const Counter = ({ title }) => {
   const { date, hours: hrs, minutes: min, seconds: sec } = getCurrentDateTime();
-  const [seconds, setSeconds] = useState(parseInt(sec));
-  const [minutes, setMinutes] = useState(parseInt(min));
-  const [hours, setHours] = useState(parseInt(hrs));
-  const [days, setDays] = useState(parseInt(date));
+  const [seconds, setSeconds] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [days, setDays] = useState(0);
   const [canMount, setCanMount] = useState(false);
 
   // To initiate
   useEffect(() => {
+    setSeconds(parseInt(sec))
+    setMinutes(parseInt(min))
+    setHours(parseInt(hrs))
+    setDays(parseInt(date))
     setInterval(() => {
       setSeconds((value) => value + 1);
     }, 1000);
@@ -41,7 +45,7 @@ const Counter = ({ title }) => {
   return (
     <>
       {title && <h2 className={styles.title}>{title}</h2>}
-      <div className={`${styles.countdown} ${canMount ? styles.show : ""}`}>
+      <div className={`${styles.countdown}`}>
         <Card value={days} label="days" />
         <Card value={hours} label="hours" />
         <Card value={minutes} label="minutes" />
