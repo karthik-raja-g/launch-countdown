@@ -28,7 +28,7 @@ const Card = ({ value, label }) => {
           <p>{flip ? temp : value < 10 ? `0${value}` : value}</p>
         </div>
         <div className={`${styles.card} ${styles.bottom}`}>
-          <p>{temp}</p>
+          <p>{value === 0 ? '00' : temp}</p>
         </div>
       </div>
       <p className={styles.label}>{label}</p>

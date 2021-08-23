@@ -1,0 +1,26 @@
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+
+  &.show {
+    opacity: 1;
+  }
+}
+.title {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.5em;
+  letter-spacing: 8px;
+  line-height: 2em;
+  text-transform: uppercase;
+  margin: 4em 0;
+}
+
+@media only screen and (max-width: 425px) {
+  .title {
+    font-size: 1em;
+  }
+}

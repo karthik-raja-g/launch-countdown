@@ -16,13 +16,6 @@ main {
   justify-content: center;
 }
 
-.countdown {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 footer {
   background-image: url('./assets/pattern-hills.svg');
   height: 20vh;
@@ -31,15 +24,6 @@ footer {
   justify-content: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-main .title {
-  color: hsl(0, 0%, 100%);
-  font-size: 1.5em;
-  letter-spacing: 8px;
-  line-height: 2em;
-  text-transform: uppercase;
-  margin: 4em 0;
 }
 
 footer .social-icon:nth-child(2) {
@@ -53,10 +37,4 @@ footer .social-icon {
 
 footer .social-icon:hover {
   color: hsl(345, 95%, 68%);
-}
-
-@media only screen and (max-width: 425px) {
-  main .title {
-    font-size: 1em;
-  }
 }
