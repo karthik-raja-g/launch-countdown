@@ -4,6 +4,7 @@ import {
   faFacebookSquare,
   faInstagram,
   faPinterest,
+  faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 import "./App.css";
 import Flip from "./flipper";
@@ -15,7 +16,7 @@ function App() {
         <Flip title="We are launching soon" as="counter" />
       </main>
       <footer>
-        <a
+        {/* <a
           href="https://www.facebook.com"
           target="_blank"
           rel="noopener noreferrer"
@@ -38,6 +39,14 @@ function App() {
           className="social-icon"
         >
           <FontAwesomeIcon icon={faInstagram} />
+        </a> */}
+        <a
+          href="https://github.com/karthik-raja-g/launch-countdown"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-icon"
+        >
+          <FontAwesomeIcon icon={faGithub} />
         </a>
       </footer>
     </div>
