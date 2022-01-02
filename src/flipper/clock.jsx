@@ -4,48 +4,49 @@ import Card from "../card";
 import { getCurrentDateTime } from "./helper";
 
 const Counter = ({ title }) => {
-  const { date, hours: hrs, minutes: min, seconds: sec } = getCurrentDateTime();
-  const [seconds, setSeconds] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [days, setDays] = useState(0);
+  const [seconds, setSeconds] = useState(60);
+  const [minutes, setMinutes] = useState(59);
+  const [hours, setHours] = useState(23);
+  const [days, setDays] = useState(30);
   const [canMount, setCanMount] = useState(false);
 
   // To initiate
   useEffect(() => {
-    setSeconds(parseInt(sec))
-    setMinutes(parseInt(min))
-    setHours(parseInt(hrs))
-    setDays(parseInt(date))
+    const { date } = getCurrentDateTime();
+    setSeconds(parseInt(10));
+    setMinutes(parseInt(1));
+    setHours(parseInt(1));
+    setDays(parseInt(date));
     setInterval(() => {
-      setSeconds((value) => value + 1);
+      setSeconds((value) => value - 1);
     }, 1000);
     setTimeout(() => {
       setCanMount(true);
     }, 500);
+    console.log('clock')
   }, []);
 
   // For reseting seconds
   useEffect(() => {
-    if (seconds === 60) {
-      setSeconds(0);
-      if (minutes === 59) {
-        setMinutes(0);
-        if (hours === 23) {
-          setHours(0);
-          setDays(days + 1);
+    if (seconds === 0) {
+      setSeconds(60);
+      if (minutes === 1) {
+        setMinutes(59);
+        if (hours === 1) {
+          setHours(23);
+          setDays(days - 1);
         } else {
-          setHours(hours + 1);
+          setHours(hours - 1);
         }
       } else {
-        setMinutes(minutes + 1);
+        setMinutes(minutes - 1);
       }
     }
   }, [seconds]);
   return (
     <>
       {title && <h2 className={styles.title}>{title}</h2>}
-      <div className={`${styles.countdown}`}>
+      <div className={`${styles.countdown} ${canMount ? styles.show : ""}`}>
         <Card value={days} label="days" />
         <Card value={hours} label="hours" />
         <Card value={minutes} label="minutes" />
