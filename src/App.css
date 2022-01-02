@@ -37,6 +37,7 @@ footer .social-icon {
   font-size: 1.5em;
   color: #ffff;
   opacity: 0.5;
+  filter: invert(1);
 }
 
 footer .social-icon:hover {

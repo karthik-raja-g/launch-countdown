@@ -23,7 +23,6 @@ const Counter = ({ title }) => {
     setTimeout(() => {
       setCanMount(true);
     }, 500);
-    console.log('clock')
   }, []);
 
   // For reseting seconds
